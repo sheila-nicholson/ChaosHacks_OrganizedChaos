@@ -20,15 +20,38 @@ body {font-family: "Trebuchet MS", sans-serif;
       <h2 class="w3-wide w3-center">Organized Chaos</h2>
       <p class="w3-opacity w3-center"><i>We will help you find your things!</i></p><br>
     
-      <form>
+      <form action="/index" method="">
         <label for="url">URL of your photo:</label><br>
         <input type="text" id="url" name="url"><br>
 
     
         <label for="location">Location of your photo:</label><br>
         <input type="text" id="location" name="location"><br>
-        <button type="button" onclick="sendData()">Submit</button>
+
+        <button type="submit">Submit</button>
       </form>
+
+      <script>
+        function sendData() {
+            // Get the values of the input fields
+            var inputText1 = document.getElementById("url").value;
+            var inputText2 = document.getElementById("location").value;
+
+            // Send the input data to the server
+            fetch('/process_input', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({text1: inputText1, text2: inputText2})
+            })
+            .then(response => response.text())
+            .then(data => {
+                // Display the response from the server
+                document.getElementById("output").innerText = data;
+            });
+        }
+      </script>
 
         </div>
       </div>
