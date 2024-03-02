@@ -57,6 +57,12 @@ while True:
         break
     
     item = input("Please enter item to be found: ")
+    for label, item_data in sorted_items_dict.items():
+        if label == item:
+            print("Your item is located at the", item_data['location'])
+            break
+    else:
+        print("Item not found.")
     
-print(items_dict)
+
 
