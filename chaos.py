@@ -1,6 +1,5 @@
 import json
 import requests
-import pandas as pd
 
 headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzQ5N2EwNWYtZWMzNi00OWU2LTg5N2QtMGIyNzAwYjI4NTVmIiwidHlwZSI6ImFwaV90b2tlbiJ9.5ek4leIgzPBElXbnKfh_uQcRpCbg0nSpEnHShHkdaMQ"}
 
@@ -21,9 +20,11 @@ with open("result.json", "r") as file:
     data = json.load(file)
 
 # Print labels from each provider
+items_dict = {}
 for provider, provider_data in data.items():
-    print(f"Labels from {provider}:")
+    #print(f"Labels from {provider}:")
     for item in provider_data["items"]:
-        print(item["label"])
-    print()
-
+        #print(item["label"])
+        items_dict[item['label'] = item['confidence'] 
+    
+print(items_dict)
