@@ -3,11 +3,23 @@ import requests
 
 headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzQ5N2EwNWYtZWMzNi00OWU2LTg5N2QtMGIyNzAwYjI4NTVmIiwidHlwZSI6ImFwaV90b2tlbiJ9.5ek4leIgzPBElXbnKfh_uQcRpCbg0nSpEnHShHkdaMQ"}
 
+# Get input from user - continues until user inputs 'n' to adding more photos
+while True:
+    user_input = input("Would you like to add a photo (type 'n' to exit): ")
+
+    # If user enters 'n' break out of the loop
+    if user_input.lower() == 'n':
+        break
+    
+    file_URL = input("Please enter photo URL: ")
+    location = input("Please enter the location of the photo: ")
+
+
 url = "https://api.edenai.run/v2/image/object_detection"
 json_payload = {
     "providers": "google,amazon",
     # Messy Desk
-    "file_url": "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-760w,f_auto,q_auto:best/newscms/2019_02/2706861/190107-messy-desk-stock-cs-910a.jpg",
+    "file_url": file_URL,
     "fallback_providers": ""
 }
 
@@ -26,5 +38,15 @@ for provider, provider_data in data.items():
     for item in provider_data["items"]:
         #print(item["label"])
         items_dict[item['label']] = item['confidence'] 
+
+# get user input for item to be searched for
+while True:
+    user_input = input("Would you like to search for an item (type 'n' to exit): ")
+
+    # If user enters 'n' break out of the loop
+    if user_input.lower() == 'n':
+        break
+    
+    item = input("Please enter item to be found: ")\
     
 print(items_dict)
