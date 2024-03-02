@@ -64,21 +64,21 @@ sorted_items_dict = OrderedDict(sorted(items_dict.items()))
 for label, item_data in sorted_items_dict.items():
     print(label, item_data)
 
-""" # get user input for item to be searched for
-while True:
-    user_input = input("Would you like to search for an item (type 'n' to exit): ")
+# get user input for item to be searched for
+# while True:
+#     user_input = input("Would you like to search for an item (type 'n' to exit): ")
 
-    # If user enters 'n' break out of the loop
-    if user_input.lower() == 'n':
-        break
+#     # If user enters 'n' break out of the loop
+#     if user_input.lower() == 'n':
+#         break
     
-    item = input("Please enter item to be found: ")
-    for label, item_data in sorted_items_dict.items():
-        if label == item:
-            print("Your item is located at the", item_data['location'])
-            break
-    else:
-        print("Item not found.")
+#     item = input("Please enter item to be found: ")
+#     for label, item_data in sorted_items_dict.items():
+#         if label == item:
+#             print("Your item is located at the", item_data['location'])
+#             break
+#     else:
+#         print("Item not found.")
     
 
 
