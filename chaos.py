@@ -17,4 +17,13 @@ response = requests.post(url, json=json_payload, headers=headers)
 with open("result.json", "w") as file:
     json.dump(json.loads(response.text), file)
 
+with open("result.json", "r") as file:
+    data = json.load(file)
+
+# Print labels from each provider
+for provider, provider_data in data.items():
+    print(f"Labels from {provider}:")
+    for item in provider_data["items"]:
+        print(item["label"])
+    print()
 
