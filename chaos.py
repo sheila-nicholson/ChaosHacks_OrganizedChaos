@@ -20,11 +20,12 @@ with open("result.json", "r") as file:
     data = json.load(file)
 
 # Print labels from each provider
+location_label = "table"
 items_dict = {}
 for provider, provider_data in data.items():
     #print(f"Labels from {provider}:")
     for item in provider_data["items"]:
-        #print(item["label"])
-        items_dict[item['label']] = item['confidence'] 
+        items_dict[item['label']] = {'confidence': item['confidence'], 'location': location_label}
+        print(item['label'], items_dict[item['label']])
     
 print(items_dict)
