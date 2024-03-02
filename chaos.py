@@ -1,5 +1,6 @@
 import json
 import requests
+import pandas as pd
 
 headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzQ5N2EwNWYtZWMzNi00OWU2LTg5N2QtMGIyNzAwYjI4NTVmIiwidHlwZSI6ImFwaV90b2tlbiJ9.5ek4leIgzPBElXbnKfh_uQcRpCbg0nSpEnHShHkdaMQ"}
 
@@ -13,4 +14,4 @@ json_payload = {
 response = requests.post(url, json=json_payload, headers=headers)
 
 result = json.loads(response.text)
-print(result["amazon"]["items"])
+print(result["google"]["items"])
