@@ -47,6 +47,6 @@ while True:
     if user_input.lower() == 'n':
         break
     
-    item = input("Please enter item to be found: ")\
+    item = input("Please enter item to be found: ")
     
 print(items_dict)
