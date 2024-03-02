@@ -1,5 +1,6 @@
 import json
 import requests
+from collections import OrderedDict
 
 headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzQ5N2EwNWYtZWMzNi00OWU2LTg5N2QtMGIyNzAwYjI4NTVmIiwidHlwZSI6ImFwaV90b2tlbiJ9.5ek4leIgzPBElXbnKfh_uQcRpCbg0nSpEnHShHkdaMQ"}
 
@@ -20,12 +21,16 @@ with open("result.json", "r") as file:
     data = json.load(file)
 
 # Print labels from each provider
-location_label = "table"
-items_dict = {}
+location_label = "Desk"
+items_dict = OrderedDict()
 for provider, provider_data in data.items():
     #print(f"Labels from {provider}:")
-    for item in provider_data["items"]:
-        items_dict[item['label']] = {'confidence': item['confidence'], 'location': location_label}
-        print(item['label'], items_dict[item['label']])
-    
-print(items_dict)
+    if provider == 'amazon':
+        for item in provider_data["items"]:
+            items_dict[item['label']] = {'confidence': item['confidence'], 'location': location_label}
+            #print(item['label'], items_dict[item['label']])
+
+sorted_items_dict = OrderedDict(sorted(items_dict.items()))
+
+for label, item_data in sorted_items_dict.items():
+    print(label, item_data)
