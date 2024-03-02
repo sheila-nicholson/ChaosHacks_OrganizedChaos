@@ -25,6 +25,6 @@ for provider, provider_data in data.items():
     #print(f"Labels from {provider}:")
     for item in provider_data["items"]:
         #print(item["label"])
-        items_dict[item['label'] = item['confidence'] 
+        items_dict[item['label']] = item['confidence'] 
     
 print(items_dict)
