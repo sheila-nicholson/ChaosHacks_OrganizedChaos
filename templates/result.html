@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Organized Chaos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Trebuchet MS", sans-serif;
+    background-color: #11708b;}
+.mySlides {display: none}
+</style>
+</head>
+<body>
+    
+    <div class="w3-black" id="tour">
+    <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+      <h2 class="w3-wide w3-center">Organized Chaos</h2>
+      <p class="w3-opacity w3-center"><i>We will help you find your things!</i></p><br>
+
+      <br><h4>Your chaos</h4><br>
+      <table class="table table-striped, center" style="width: 80%">
+          <thead>
+              <tr>
+                  <th class="text-start">label</th>
+                  <th class="text-start">confidence</th>
+                  <th class="text-start">location</th>
+              </tr>
+          </thead>
+          <tbody>
+              {%for item in stocks%}
+              <tr>
+                  <td class="text-start">{{ item[0] }}</td>
+                  <td class="text-start">{{ item[1] }}</td>
+                  <td class="text-start">{{ item[2] }}</td>
+              </tr>
+              {%endfor%}
+          </tbody>
+      </table>
+
+    </div>
+    </div>
+
+
+</body>
+</html>
