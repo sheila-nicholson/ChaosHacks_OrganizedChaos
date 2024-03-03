@@ -16,7 +16,7 @@ def index():
     # Render the HTML form
     return render_template('index.html')
 
-@app.route('/process', methods=['POST'])
+@app.route('/process', methods=['POST','GET'])
 def process():
     if request.method == "POST":
         # Get the input data from the request
@@ -54,9 +54,21 @@ def process():
 
         print(sorted_items_list)
         return render_template('result.html', stocks = sorted_items_list)
+    if request.method == "POST":
+        render_template('result.html', stocks = sorted_items_list)
 
+@app.route('/search', methods=['POST','GET'])
+def search():
+    if request.method == "POST":
+        # Get the input data from the request
+        location = request.form["item"]
+        
+        return render_template('search.html', location)
+    if request.method == "GET":
+        return render_template('search.html')
+        
 
-    # get user input for item to be searched for
+    # # get user input for item to be searched for
     # while True:
     #     user_input = input("Would you like to search for an item (type 'n' to exit): ")
 
@@ -65,7 +77,7 @@ def process():
     #         break
         
     #     item = input("Please enter item to be found: ")
-    #     for label, item_data in sorted_items_dict.items():
+    #     for label, item_data in sorted_items_list:
     #         if label == item:
     #             print("Your item is located at the", item_data['location'])
     #             break

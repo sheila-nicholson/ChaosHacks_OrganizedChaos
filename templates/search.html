@@ -29,31 +29,18 @@ body {font-family: "Trebuchet MS", sans-serif;
             </div>
         </div>
     </nav>
-
+    
     <div class="w3-black" id="tour">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
       <h2 class="w3-wide w3-center">Organized Chaos</h2>
       <p class="w3-opacity w3-center"><i>We will help you find your things!</i></p><br>
 
-      <br><h4>Your chaos</h4><br>
-      <table class="table table-striped, center" style="width: 80%">
-          <thead>
-              <tr>
-                  <th class="text-start">label</th>
-                  <th class="text-start">confidence</th>
-                  <th class="text-start">location</th>
-              </tr>
-          </thead>
-          <tbody>
-              {%for item in stocks%}
-              <tr>
-                  <td class="text-start">{{ item[0] }}</td>
-                  <td class="text-start">{{ item[1] }}</td>
-                  <td class="text-start">{{ item[2] }}</td>
-              </tr>
-              {%endfor%}
-          </tbody>
-      </table>
+      <form action="/search" method="POST">
+        <label for="item">Your lost item:</label><br>
+        <input type="text" id="item" name="item"><br>
+
+        <button type="submit">Search</button>
+      </form>
 
     </div>
     </div>
