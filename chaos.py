@@ -63,8 +63,9 @@ def process():
 
         print(sorted_items_list)
         return render_template('result.html', stocks = sorted_items_list)
+    
     if request.method == "POST":
-        render_template('result.html', stocks = sorted_items_list)
+        render_template('result.html')
 
 @app.route('/search', methods=['POST','GET'])
 def search():
