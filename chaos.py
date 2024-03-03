@@ -7,7 +7,7 @@ import csv
 sorted_items_list = []
 def search_list(find_item, list):
     for row in list:
-        if row[0] == find_item
+        if row[0] == find_item:
             return row[0]
         
     return "not found"
