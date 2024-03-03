@@ -6,7 +6,7 @@ from flask import Flask, request, render_template
 headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzQ5N2EwNWYtZWMzNi00OWU2LTg5N2QtMGIyNzAwYjI4NTVmIiwidHlwZSI6ImFwaV90b2tlbiJ9.5ek4leIgzPBElXbnKfh_uQcRpCbg0nSpEnHShHkdaMQ"}
 
 
-url = "https://api.edenai.run/v2/image/object_detection"
+api_url = "https://api.edenai.run/v2/image/object_detection"
 
 #used to get user input from HTML
 app = Flask(__name__)
