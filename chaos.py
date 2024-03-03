@@ -2,6 +2,16 @@ import json
 import requests
 from collections import OrderedDict
 from flask import Flask, request, render_template
+import csv
+
+sorted_items_list = []
+def search_list(find_item, list):
+    for row in list:
+        if row[0] == find_item
+            found_items_arr.append(row)
+            return row[0]
+        
+    return "not found"
 
 headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzQ5N2EwNWYtZWMzNi00OWU2LTg5N2QtMGIyNzAwYjI4NTVmIiwidHlwZSI6ImFwaV90b2tlbiJ9.5ek4leIgzPBElXbnKfh_uQcRpCbg0nSpEnHShHkdaMQ"}
 
@@ -61,8 +71,10 @@ def process():
 def search():
     if request.method == "POST":
         # Get the input data from the request
-        location = request.form["item"]
+        item = request.form["item"]
         
+        location = search_list(item, sorted_items_list)
+
         return render_template('search.html', location)
     if request.method == "GET":
         return render_template('search.html')
