@@ -8,7 +8,6 @@ sorted_items_list = []
 def search_list(find_item, list):
     for row in list:
         if row[0] == find_item
-            found_items_arr.append(row)
             return row[0]
         
     return "not found"
