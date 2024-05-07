@@ -12,7 +12,10 @@ def search_list(find_item, list):
         
     return "not found"
 
-headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzQ5N2EwNWYtZWMzNi00OWU2LTg5N2QtMGIyNzAwYjI4NTVmIiwidHlwZSI6ImFwaV90b2tlbiJ9.5ek4leIgzPBElXbnKfh_uQcRpCbg0nSpEnHShHkdaMQ"}
+#headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzQ5N2EwNWYtZWMzNi00OWU2LTg5N2QtMGIyNzAwYjI4NTVmIiwidHlwZSI6ImFwaV90b2tlbiJ9.5ek4leIgzPBElXbnKfh_uQcRpCbg0nSpEnHShHkdaMQ"}
+headers = {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMmQ5Y2M0ODQtZDg2Zi00NjU4LWFkNjUtNjRmNjc2NDNjOTM1IiwidHlwZSI6ImFwaV90b2tlbiJ9.-0H1AStTxPDYr_hTn5pkbJQp4zogMuh9dlYBCUoeHEw"}
+
+
 
 
 api_url = "https://api.edenai.run/v2/image/object_detection"
@@ -33,10 +36,9 @@ def process():
         location_label = request.form["location"]
 
         json_payload = {
-            "providers": "google,amazon",
-            # Messy Desk
+            "providers": "amazon",
             "file_url": file_URL,
-            "fallback_providers": ""
+            "fallback_providers": "google"
         }
 
         response = requests.post(api_url, json=json_payload, headers=headers)
